@@ -1,0 +1,492 @@
+/* Universal CSS */
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+
+:root {
+  --color-primary: #0066CC;
+  --color-secondary: #0099FF;
+  --color-white: #ffffff;
+  --color-capsule-bg: rgba(237, 233, 230, 0.96);
+  --color-border: rgba(0, 0, 0, 0.08);
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "GRAD" 0;
+  box-sizing: border-box;
+}
+
+/* Header Component */
+#social-icons {
+    display: flex;
+    margin: auto;
+    right: 5px;
+    align-items: right;
+    justify-content: right;
+    gap: 1rem;
+    width: 75%;
+    font-size:1.8rem;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  align-items: center;
+  margin: 0 auto;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#sub-header {
+  justify-items: right;
+  display: inline-grid;
+  gap: 5px;
+}
+
+#social-icons a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+#social-icons a:hover {
+  color: var(--color-accent);
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+nav li {
+  list-style: none;
+}
+
+
+@keyframes underline-link {
+  0% {
+    background-size: 0% .1em;
+  }
+
+  to {
+    background-size: var(--to) .1em;
+  }
+}
+
+nav li a {
+  color: var(--color-primary);
+  text-decoration: none;
+
+  padding-bottom: 0.2em;
+  margin: 0 1em;
+
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 300;
+  
+  position: relative;
+
+  /* underline effect */
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary) 0%,
+    var(--color-primary) 100%
+  );
+
+  background-repeat: no-repeat;
+  background-position: 0 90%;
+  background-size: 0% 0.1em;
+
+  transition:
+    transform 160ms ease,
+    font-weight 160ms ease;
+}
+
+nav li a:hover,
+nav li a:focus {
+  animation: underline-link 0.2s forwards;
+  font-weight: 700;
+  --to: 92%;
+}
+
+.active {
+  font-weight: 700;
+  background-size: 92% 0.1em;
+  transform: scale(1.08);
+}
+
+main {
+  width: 75%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+#about {
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#about p {
+  font-size: 1.2rem;
+  margin: 0;
+  line-height: 2;
+}
+
+.capsule-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-bottom: 0.85rem;
+}
+
+.capsule {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: var(--color-capsule-bg);
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+
+.c1:hover {
+  color: var(--color-white);
+  background: var(--color-primary);
+}
+
+.c2:hover {
+  color: var(--color-white);
+  background: var(--color-primary);
+}
+
+.c3:hover {
+  color: var(--color-white);
+  background: var(--color-primary);
+}
+
+.clr {
+  clear: both;
+}
+
+/* Footer Styles*/
+
+/* Footer Component */
+footer {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 15%;
+  padding: 20px 0;
+}
+
+.footer-links {
+  font-size: 1.1rem;
+}
+
+.footer-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  padding: 0;
+}
+
+.footer-links li {
+  list-style: none;
+}
+
+.footer-links a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-primary);
+  font-weight: 500;
+  transition: color 150ms ease;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  font-size: 1rem;
+}
+
+
+.rotor-head {
+  font-family: "Sour Gummy", cursive;
+  font-size: 2.5rem;
+}
+
+#about h2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+/* Word Rotor */
+.word-rotator {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  height: 1.25em;
+  vertical-align: middle;
+  font-family: "Sour Gummy", cursive;
+  font-size: 2.5rem;
+  text-align: left;
+  box-sizing: border-box;
+  width: 120px;
+  transition: width 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  margin-left: 0.3em;
+  color: var(--color-primary);
+}
+
+.word-rotator b {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.25em;
+  width: auto;
+  font-weight: inherit;
+}
+
+.word-rotator b.is-hidden {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.word-rotator b.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Responsive Media Screen */
+@media (max-width:900px) {
+  nav ul {
+    display: flow !important;
+  }
+
+  .footer-social {
+    display: none;
+  }
+
+  .rotor-head {
+    font-size: 2rem;
+  }
+
+  .word-rotator {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    gap: 1em;
+    padding: 10px 2%;
+    font-size: 1em;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    margin-top: 1em;
+    font-size: 0.95em;
+  }
+
+  .rotor-head {
+    font-size: 1.4rem;
+  }
+
+  .word-rotator {
+    font-size: 1.4rem;
+  }
+}
+
+
+
+/* Project Page */
+.project-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.project-card {
+  padding-bottom: 1.5rem;
+  border-bottom: 3px dashed var(--color-border);
+}
+
+#projects p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.project-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.35rem;
+}
+
+.project-description {
+  margin: 0.75rem 0;
+  padding-left: 1.2rem;
+}
+
+.project-description li {
+  line-height: 1.8;
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
+}
+
+.project-description li:last-child {
+  margin-bottom: 0;
+}
+
+.project-links {
+  margin: 0.75rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.project-links a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.project-tech span {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: var(--color-capsule-bg);
+  font-size: 0.95rem;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.project-tech span:hover {
+  color: var(--color-white);
+  background: var(--color-primary);
+}
+
+/* Resume page */
+#resume p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.education-item,
+.experience-card {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px dashed var(--color-border);
+}
+
+.education-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0 0 0.35rem;
+}
+
+.experience-role h3 {
+  font-size: 1.3rem;
+  margin: 0 0 0.35rem;
+}
+
+.education-details,
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-size: 1.1rem;
+}
+
+.experience-highlights {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.experience-highlights li {
+  line-height: 1.8;
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
+}
+
+.experience-highlights li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .education-details,
+  .experience-header {
+    flex-direction: column;
+  }
+}
+
+/* Scroll Progress Bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.05s ease-out;
+}
+
+/* Page Transitions */
+.js-enabled main {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.js-enabled main.page-loaded {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); 
+}
+.js-enabled main.page-exit {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+}
